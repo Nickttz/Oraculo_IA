@@ -17,6 +17,11 @@
 - Streamlit
 - CSV
 
+instale, caso não as possua:
+```
+pip install streamlit langchain google-generativeai python-dotenv sentence-transformers
+```
+
 # Explicação do Código
 O código está dividido em algumas partes principais:
 
@@ -42,7 +47,7 @@ Em seu terminal, acesse o diretório e digite o comando:
 
 **Windows** (Powershell ou Prompt De Comando):  
 ```
-python streamlit run oracle.py
+python -m streamlit run oracle.py
 ```
 **Linux ou macOS:  
 ```
