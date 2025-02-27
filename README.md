@@ -23,6 +23,10 @@ pip install streamlit langchain google-generativeai python-dotenv sentence-trans
 ```
 
 # Explicação do Código
+WARNING⚠️: Altere o modelo da IA Google Gemini de acordo com a sua conta!
+```
+llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=google_api_key)
+```
 O código está dividido em algumas partes principais:
 
 ## 1. Carregamento da Base de Dados
