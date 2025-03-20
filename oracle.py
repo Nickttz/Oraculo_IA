@@ -15,7 +15,7 @@ google_api_key = os.getenv("GOOGLE_API_KEY")
 # Criar modelo do Google Gemini
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro", google_api_key=google_api_key)
 
-# 🔹 Carregar a base de informações do CSV corretamente
+#  Carregar a base de informações do CSV corretamente
 documents = []
 with open("base.csv", encoding="utf-8") as base:
     reader = csv.reader(base, delimiter=";")  # Define o delimitador correto
@@ -25,10 +25,10 @@ with open("base.csv", encoding="utf-8") as base:
         pergunta, resposta = row[1], row[2]  # Pegando apenas pergunta e resposta por colunas
         documents.append(Document(page_content=f"Pergunta: {pergunta}\nResposta: {resposta}"))
 
-# 🔹 Criar embeddings do Hugging Face
+#  Criar embeddings do Hugging Face
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
-# 🔹 Criar o FAISS vectorstore corretamente
+#  Criar o FAISS vectorstore corretamente
 vectorstore = FAISS.from_documents(documents, embeddings)
 retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 3})  # Recupera os 3 mais relevantes
 
